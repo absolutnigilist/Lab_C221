@@ -54,27 +54,47 @@ int main()
 
 
 	int x = 5;
+	int delta = 8;
 
 	// Набор действий: инкремент, вывод, декремент, вывод
 	auto increment = [](int& val) { ++val; };
-	auto decrement = [](int& val) { --val; };
+	auto decrement = [](int& val) { --val; }; 
+	auto decrement_functor = [delta](int& val) { val=val-delta; };
 	auto print = [](int& val) { std::cout << "Value: " << val << std::endl; };
 
+	
+
 	// Применение действий к значению x
-	apply_actions(x, increment, print, decrement, print, increment, print);
+	apply_actions(x, increment, print, increment_global, print, decrement, print, increment_template<int>,print, increment, print, decrement_functor, print);
 
 }
 {
 //Задание 3.б - с использованием fold(С++17)
 		int x = 5;
+		
 
 		// Набор действий: инкремент, вывод, декремент, вывод
 		auto increment = [](int& val) { ++val; };
 		auto decrement = [](int& val) { --val; };
+		auto decrement_functor = [delta=8](auto & val) { val = val - delta; };
 		auto print = [](int& val) { std::cout << "Value: " << val << std::endl; };
 
 		// Применение действий к значению x
-		apply_actions(x, increment, print, decrement, print, increment, print);
+		apply_actions(x, increment, print, increment_global, print, decrement, print, increment_template<int>, print, increment, print, decrement_functor, print);
+}
+
+{
+	//Задание 4.а - без использования fold(С++14)
+	//Посредством вызова variadic - функции требуется выполнить одно и то же действие над набором операндов
+	//Уточнение 1: значения операндов могут быть разного типа(для которого реализовано соответствующее действие)
+	//Уточнение 2 : подумайте – можно ли реализовать действие посредством шаблона глобальной функции ?
+
+	int x = 5;
+	double y = 3.14;
+	std::string z = "Hello";
+
+	//Пример использования apply_to_all с шаблонной глобальной функцией
+	apply_to_all(ActionFunctor(), x, y, z);
 }
 /**********************************************************************************/
 {
