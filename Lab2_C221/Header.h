@@ -60,3 +60,12 @@ void printTuple(const std::tuple<Args...>& t) {
 	
 }
 #endif
+
+template<typename T>
+bool InRange(const T& minVal, const T& maxVal, const T& value) {
+	return value >= minVal && value <= maxVal;
+}
+template<typename T, typename...Args>
+bool InRange(const T& minVal, const T& maxVal, const T& firstVal, const Args&...restVal) {
+	return InRange(minVal, maxVal, firstVal) && InRange(minVal, maxVal, restVal...);
+}

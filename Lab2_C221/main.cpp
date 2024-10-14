@@ -2,6 +2,7 @@
 #include "Point.h"
 #include "Book.h"
 #include "Library.h"
+#include "Calculator.h"
 #include <tuple>
 
 int main() {
@@ -38,5 +39,28 @@ int main() {
 
     // Удаление книги
     l.remove({ "Straustrup", "C++", 2000 });
+
+    //Call to calculator
+    Calc();
+
+    // Используем std::function для хранения лямбда-функции
+    std::function<int(int)> sum_natural;
+
+    // Определяем рекурсивную лямбда-функцию для вычисления суммы натурального ряда
+    sum_natural = [&sum_natural](int x) {
+        if (x<=1)
+        {
+            return x;// Базовый случай: если x <= 1, возвращаем x
+        }
+        return x + sum_natural(x - 1); // Рекурсивный случай
+        };
+    // Пример: вычисляем сумму ряда для числа 5
+    int n = 5;
+    std::cout << "Sum of natural numbers up to " << n << " is: " << sum_natural(n) << std::endl;
+
+
+    bool res1=InRange(10, 20, 1, 15, 30);             // --> false 
+    bool res2=InRange(10, 20, 11, 12, 13);            // --> true
+    bool res3=InRange(5.0, 5.5, 5.1, 5.2, 5.3);       // --> true
 	return 0;
 }

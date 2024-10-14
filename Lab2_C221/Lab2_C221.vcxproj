@@ -129,12 +129,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Book.cpp" />
+    <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="Library.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
+    <ClInclude Include="Calculator.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="Library.h" />
     <ClInclude Include="Point.h" />
