@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Find.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
@@ -135,6 +136,7 @@
     <ClCompile Include="Split.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animal.h" />
     <ClInclude Include="Find.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Split.h" />

@@ -2,6 +2,7 @@
 #include "Split.h"
 #include "Find.h"
 #include "Person.h"
+#include "Animal.h"
 
 #include <algorithm>
 #include <compare>
@@ -78,5 +79,23 @@ int main() {
     for (const auto& person : people) {
         person.print();
     }
+
+    std::vector<Animal> animals = {
+        Cat("Musya"),
+        Dog("Sharik"),
+        Cat("Murka"),
+        Dog("Bobik"),
+        Dog("Layka")
+    };
+
+    int count_cat = 0;
+    int count_dog = 0;
+
+    for (const auto& animal : animals) {
+        tell_about_animal(animal, count_cat, count_dog);
+    }
+
+    std::cout << "Cats: " << count_cat << std::endl;
+    std::cout << "Dogs: " << count_dog << std::endl;
     return 0;
 }
