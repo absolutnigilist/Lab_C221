@@ -24,12 +24,8 @@ int main() {
     };
     // Сортируем по цвету и площади
     std::sort(rectangles.begin(), rectangles.end(), [](const Rect& a, const Rect& b) {
-        if (a.getColor() != b.getColor()) {
-            return a.getColor() < b.getColor();  // Сначала сортировка по цвету
-        }
-        return a.area() < b.area();  // Затем по площади
-        });
-    
+        return a.area() < b.area(); });
+
     // Выводим отсортированные прямоугольники
     std::cout << "Rectangles sorted by area:\n";
     for (const auto& a : rectangles) {

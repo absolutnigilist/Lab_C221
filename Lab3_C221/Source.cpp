@@ -11,7 +11,8 @@ std::string colorToString(Color c) {
 		break;
 	case Blue: return "Blue";
 		break;
-	default:
+	default:return "Unknown";
+
 		break;
 	}
 }

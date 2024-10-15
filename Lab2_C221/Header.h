@@ -3,9 +3,9 @@
 #include <tuple>
 #include <string>
 
-//#define VAR1
+#define VAR1
 //#define VAR2
-#define VAR4
+//#define VAR3
 
 
 #ifdef VAR1
@@ -60,7 +60,7 @@ void printTuple(const std::tuple<Args...>& t) {
 }
 #endif VAR2
 
-#ifdef VAR4
+#ifdef VAR3
 
 template<typename T, size_t t = std::tuple_size_v<T> -1>
 void printTuple(const T& tpl) {
@@ -76,7 +76,7 @@ void printTuple(const T& tpl) {
 		std::cout << std::get<t>(tpl) << '\n';
 	}
 }
-#endif // VAR4
+#endif // VAR3
 
 template<typename T>
 bool InRange(const T& minVal, const T& maxVal, const T& value) {

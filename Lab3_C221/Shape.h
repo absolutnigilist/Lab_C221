@@ -16,7 +16,7 @@ public:
 	Color getColor() const;
 	std::string getColorName()const;
 	virtual~Shape() = default;
-	auto operator<=>(const Shape& other) const = default;
+	auto operator<=>(const Shape& other) const=default;
 };
 
 // Класс Rect, наследуемый от Shape
@@ -30,7 +30,7 @@ public:
 	int area() const;
 
 	// Оператор сравнения <=> для сортировки по площади
-	auto operator<=>(const Rect& other) const = default;
+	auto operator<=>(const Rect& other) const;
 
 	//Функция печати прямоугольника
 	void print()const;
