@@ -5,7 +5,7 @@
 #include <string>
 
 // Перечисление цветов
-enum Color{Red,Green,Blue};
+enum Color { Red, Green, Blue };
 
 // Базовый класс Shape
 class Shape {

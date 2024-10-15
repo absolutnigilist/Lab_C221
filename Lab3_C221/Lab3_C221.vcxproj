@@ -133,12 +133,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="Split.cpp" />
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
     <ClInclude Include="Find.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Split.h" />
     <ClInclude Include="Shape.h" />

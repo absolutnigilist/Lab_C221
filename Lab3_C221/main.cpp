@@ -4,6 +4,7 @@
 #include "Person.h"
 #include "Animal.h"
 #include "Time.h"
+#include "Header.h"
 
 #include <algorithm>
 #include <compare>
@@ -117,5 +118,11 @@ int main() {
         << get_date_part(month) << " : "
         << get_date_part(year) << " : "
         << get_date_part(weekday) << std::endl;
+
+    // Создаем вектор, содержащий std::variant<int, double, Color>
+    std::vector<std::variant<int, double, Color>> values = {42, 3.14, Red, Green, 7, 2.71, Blue};
+
+    // Выводим значения
+    printVariants(values);
     return 0;
 }
