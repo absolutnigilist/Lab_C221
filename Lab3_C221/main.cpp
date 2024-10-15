@@ -5,6 +5,7 @@
 #include "Animal.h"
 #include "Time.h"
 #include "Header.h"
+#include "Array.h"
 
 #include <algorithm>
 #include <compare>
@@ -124,5 +125,15 @@ int main() {
 
     // Выводим значения
     printVariants(values);
+
+    std::array<int, 5> numbers = { 1, 2, 3, 4, 5 };
+
+    try {
+        std::cout << "Element at index 2: " << getElement(numbers, 2) << std::endl; // Должно вернуть 3
+        std::cout << "Element at index 5: " << getElement(numbers, 5) << std::endl; // Это вызовет исключение
+    }
+    catch (const std::out_of_range& e) {
+        std::cerr << "Error: " << e.what() << std::endl; // Обработка исключения
+    }
     return 0;
 }

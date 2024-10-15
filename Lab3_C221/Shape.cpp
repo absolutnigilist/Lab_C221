@@ -19,6 +19,7 @@ std::string Shape::getColorName()const
 		return std::string("Blue");
 		break;
 	default:
+		return std::string("Unknown");
 		break;
 	}
 }

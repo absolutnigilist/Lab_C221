@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animal.cpp" />
+    <ClCompile Include="Array.cpp" />
     <ClCompile Include="Find.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
@@ -139,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
+    <ClInclude Include="Array.h" />
     <ClInclude Include="Find.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="Person.h" />
