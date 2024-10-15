@@ -1,7 +1,11 @@
 #include "Shape.h"
-#include <vector>
+#include "Split.h"
+#include "Find.h"
+#include "Person.h"
+
 #include <algorithm>
 #include <compare>
+
 
 
 int main() {
@@ -20,5 +24,59 @@ int main() {
     for (const auto& a : rectangles) {
         a.print();
     }
-	return 0;
+
+    const char* str[]{ "123", "abc", "qwerty" };
+    char ar[] = "dog";
+    char* p = new char[4] {"cat"};
+    std::string s("great");
+
+    std::vector<std::string_view> views = { str[0],str[1], str[2],ar,p,s };
+    std::sort(views.begin(), views.end());
+    for (const auto& a : views) {
+        std::cout << a<<" ";
+    }
+    std::cout << std::endl;
+
+    const char* split_str = "abc 12345 cat dog bird";
+
+    // Вызов функции split_string
+    std::vector<std::string_view> words = split_string(split_str);
+
+    // Вывод результатов
+    std::cout << "Split words:" << std::endl;
+    for (const auto& word : words) {
+        std::cout << word<<" ";
+    }
+    std::cout << std::endl;
+
+    std::vector<int> vec = { 10, -20, 30, -40, 50 };  // Исходный вектор
+    int value_to_find = 20;  // Число для поиска по модулю
+
+    // Вызов функции
+    std::optional<int> index = find_by_modulo(vec, value_to_find);
+
+    if (index) {
+        std::cout << "Element found at index: " << *index << std::endl;
+    }
+    else {
+        std::cout << "No matching element found." << std::endl;
+    }
+
+    // Создаем вектор людей
+    std::vector<Person> people = {
+        Person("Alice", 25, "Ali"),
+        Person("Bob", 30),
+        Person("Charlie", 22, "Chuck"),
+        Person("Dave", 35),
+        Person("Eve", 28, "Evie") };
+	
+    // Сортировка по имени (например)
+    std::sort(people.begin(), people.end(), [](const Person& a, const Person& b) {return a.m_name < b.m_name; });
+   
+    // Вывод отсортированного списка
+    std::cout << "Sorted by name:" << std::endl;
+    for (const auto& person : people) {
+        person.print();
+    }
+    return 0;
 }

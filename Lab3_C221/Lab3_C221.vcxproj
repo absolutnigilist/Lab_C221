@@ -128,10 +128,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Find.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Person.cpp" />
     <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="Split.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Find.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="Split.h" />
     <ClInclude Include="Shape.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

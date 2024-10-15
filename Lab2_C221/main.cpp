@@ -4,6 +4,8 @@
 #include "Library.h"
 #include "Calculator.h"
 #include <tuple>
+#include <string_view>
+
 
 int main() {
 	//1. std::tuple<>, std::tuple_size<>::value,
@@ -62,5 +64,6 @@ int main() {
     bool res1=InRange(10, 20, 1, 15, 30);             // --> false 
     bool res2=InRange(10, 20, 11, 12, 13);            // --> true
     bool res3=InRange(5.0, 5.5, 5.1, 5.2, 5.3);       // --> true
+
 	return 0;
 }
