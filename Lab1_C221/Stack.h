@@ -7,8 +7,8 @@ private:
     struct Node {
         T data;
         std::unique_ptr<Node> next;
-        Node(const T& value) : data(value), next(nullptr) {}
-        Node(T&& value) : data(std::move(value)), next(nullptr) {}
+        template<typename N>
+        Node(N&& value) :data(std::forward<N>(value)), next(nullptr) {};
     };
 
     std::unique_ptr<Node> head;

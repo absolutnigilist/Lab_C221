@@ -2,6 +2,7 @@
 
 #include <type_traits>
 #include <iostream>
+#include <string>
 
 // Перечисление цветов
 enum Color{Red,Green,Blue};
@@ -11,7 +12,11 @@ class Shape {
 	Color m_c;
 public:
 	Shape(Color c);
+	// Метод для получения цвета
+	Color getColor() const;
+	std::string getColorName()const;
 	virtual~Shape() = default;
+	auto operator<=>(const Shape& other) const = default;
 };
 
 // Класс Rect, наследуемый от Shape

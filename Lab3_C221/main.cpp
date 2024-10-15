@@ -3,6 +3,7 @@
 #include "Find.h"
 #include "Person.h"
 #include "Animal.h"
+#include "Time.h"
 
 #include <algorithm>
 #include <compare>
@@ -16,9 +17,16 @@ int main() {
         Rect(0, 10, 0, 5, Red),
         Rect(0, 3, 0, 3, Green),
         Rect(0, 8, 0, 4, Blue),
-        Rect(0, 5, 0, 5, Red)
+        Rect(0, 5, 0, 5, Red),
+        Rect(0, 5, 0, 5, Blue)
     };
-    std::sort(rectangles.begin(), rectangles.end(), [](const Rect& a, const Rect& b) {return a.area() < b.area(); });
+    // Сортируем по цвету и площади
+    std::sort(rectangles.begin(), rectangles.end(), [](const Rect& a, const Rect& b) {
+        if (a.getColor() != b.getColor()) {
+            return a.getColor() < b.getColor();  // Сначала сортировка по цвету
+        }
+        return a.area() < b.area();  // Затем по площади
+        });
     
     // Выводим отсортированные прямоугольники
     std::cout << "Rectangles sorted by area:\n";
@@ -97,5 +105,17 @@ int main() {
 
     std::cout << "Cats: " << count_cat << std::endl;
     std::cout << "Dogs: " << count_dog << std::endl;
+
+    // Запрашиваем все части даты
+    std::variant<What> year = What::Year;
+    std::variant<What> month = What::Month;
+    std::variant<What> day = What::Day;
+    std::variant<What> weekday = What::WeekDay;
+
+    // Выводим дату в формате: день : месяц : год : день недели
+    std::cout << get_date_part(day) << " : "
+        << get_date_part(month) << " : "
+        << get_date_part(year) << " : "
+        << get_date_part(weekday) << std::endl;
     return 0;
 }

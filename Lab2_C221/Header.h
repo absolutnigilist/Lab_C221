@@ -4,8 +4,9 @@
 #include <string>
 
 //#define VAR1
-#define VAR2
-#define VAR3
+//#define VAR2
+#define VAR4
+
 
 #ifdef VAR1
 
@@ -19,10 +20,8 @@ void printTuple(const std::tuple<Types...>& t) {
 	std::apply(lamda, t);
 	std::cout << std::endl;
 }
-#endif
+#endif VAR1
 
-
-#ifdef VAR2
 
 //Вспомогательная функция для перегрузки оператора<<
 
@@ -37,9 +36,9 @@ std::ostream& operator<<(std::ostream& os, const std::tuple<Types...>& t) {
 	printTupleIndeces(os, t, std::make_index_sequence<sizeof...(Types)>{});
 	return os;
 }
-#endif
 
-#ifdef VAR3
+
+#ifdef VAR2
 
 //Использование std::tuple_size и рекурсии
 
@@ -59,7 +58,25 @@ void printTuple(const std::tuple<Args...>& t) {
 	}
 	
 }
-#endif
+#endif VAR2
+
+#ifdef VAR4
+
+template<typename T, size_t t = std::tuple_size_v<T> -1>
+void printTuple(const T& tpl) {
+	if constexpr (t == 0)
+	{
+		//Базовый метод
+		std::cout << std::get<0>(tpl) << '\n';
+	}
+	else
+	{
+		// Рекурсивный случай: выводим элемент t и продолжаем рекурсию
+		printTuple<T, t - 1>(tpl);
+		std::cout << std::get<t>(tpl) << '\n';
+	}
+}
+#endif // VAR4
 
 template<typename T>
 bool InRange(const T& minVal, const T& maxVal, const T& value) {
