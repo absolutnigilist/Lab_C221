@@ -29,7 +29,7 @@ int main() {
     std::cout << "Rectangles sorted by area:\n";
     for (const auto& a : rectangles) {
         a.print();
-    }
+    };
 
     const char* str[]{ "123", "abc", "qwerty" };
     char ar[] = "dog";
@@ -95,13 +95,15 @@ int main() {
 
     int count_cat = 0;
     int count_dog = 0;
+    
+    NoName counter;
 
     for (const auto& animal : animals) {
-        tell_about_animal(animal, count_cat, count_dog);
+        tell_about_animal(animal,counter);
     }
 
-    std::cout << "Cats: " << count_cat << std::endl;
-    std::cout << "Dogs: " << count_dog << std::endl;
+    std::cout << "Cats: " <<counter.count_cat << std::endl;
+    std::cout << "Dogs: " << counter.count_dog << std::endl;
 
     // Запрашиваем все части даты
     std::variant<What> year = What::Year;

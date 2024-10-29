@@ -43,13 +43,17 @@ int Rect::area()const {
 	return (m_r - m_l) * (m_t - m_b);
 }
 
-auto Rect::operator<=>(const Rect& other) const{
+std::strong_ordering Rect::operator<=>(const Shape& other) const noexcept {
+	if (auto cmp = area() <=> other.area(); cmp != 0) {
+		return cmp;
+	}
+	return Shape::operator<=> (other); // Здесь вызов базового класса
+}
+
+std::strong_ordering Rect::operator<=>(const Rect& other) const{
 	// Сравниваем по площади, если площади равны, сравниваем по цвету
 	if (auto cmp = area() <=> other.area();cmp!=0) {
 		return cmp;
 	}
 	return Shape::operator<=> (other); // Здесь вызов базового класса
-}
-bool Rect::operator<(const Rect& other) const {
-	return (this->operator<=>(other)) < 0;
 }

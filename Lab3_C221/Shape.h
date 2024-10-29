@@ -16,7 +16,8 @@ public:
 	Color getColor() const;
 	std::string getColorName()const;
 	virtual~Shape() = default;
-	auto operator<=>(const Shape& other) const=default;
+	virtual int area() const= 0;
+	virtual std::strong_ordering operator<=>(const Shape& other) const=default;
 };
 
 // Класс Rect, наследуемый от Shape
@@ -28,12 +29,12 @@ public:
 
 	//Метод для вычисдения площади
 	int area() const;
-
+	
+	//Перегурженный оператор сравнения сущностей
+	virtual std::strong_ordering operator<=>(const Shape& other) const noexcept;
+	
 	// Оператор сравнения <=> для сортировки по площади
-	auto operator<=>(const Rect& other) const;
-
-	// Добавляем оператор < для совместимости со std::less
-	bool operator<(const Rect& other) const; 
+	std::strong_ordering operator<=>(const Rect& other) const;
 
 	//Функция печати прямоугольника
 	void print()const;
