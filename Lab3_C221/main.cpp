@@ -23,8 +23,7 @@ int main() {
         Rect(0, 5, 0, 5, Blue)
     };
     // Сортируем по цвету и площади
-    std::sort(rectangles.begin(), rectangles.end(), [](const Rect& a, const Rect& b) {
-        return a.area() < b.area(); });
+    std::sort(rectangles.begin(), rectangles.end());
 
     // Выводим отсортированные прямоугольники
     std::cout << "Rectangles sorted by area:\n";

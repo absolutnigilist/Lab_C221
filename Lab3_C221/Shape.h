@@ -5,7 +5,7 @@
 #include <string>
 
 // Перечисление цветов
-enum Color { Red, Green, Blue };
+enum Color { Blue, Green,Red};
 
 // Базовый класс Shape
 class Shape {
@@ -31,6 +31,9 @@ public:
 
 	// Оператор сравнения <=> для сортировки по площади
 	auto operator<=>(const Rect& other) const;
+
+	// Добавляем оператор < для совместимости со std::less
+	bool operator<(const Rect& other) const; 
 
 	//Функция печати прямоугольника
 	void print()const;
